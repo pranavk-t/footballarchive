@@ -11,15 +11,14 @@ public class CreatedArchivedMatchRequest {
     @NotBlank
     private String venue;
 
-    // TEXT (MatchReport)
     @Size(min = 20)
     private String reportText;
 
-    // LINK (MatchReferenceLink)
+
     private String referenceUrl;
     private String description;
 
-    // QUOTE (MatchQuote)
+
     private String quoteText;
     private String speaker;
 

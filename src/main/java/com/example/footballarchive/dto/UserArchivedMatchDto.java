@@ -6,8 +6,8 @@ public class UserArchivedMatchDto {
     private String matchTitle;
     private String venue;
 
-    private String content;   // report text / quote / link description
-    private String reference; // url / speaker / null
+    private String content;
+    private String reference;
 
     public UserArchivedMatchDto(
             Long id,
