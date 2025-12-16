@@ -1,4 +1,5 @@
 package com.example.footballarchive.dto;
+import jakarta.validation.constraints.*;
 
 public class CreatedArchivedMatchRequest {
     @NotNull
