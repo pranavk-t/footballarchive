@@ -173,11 +173,31 @@ Logged events include:
 
 ## 🧠 Engineering Notes
 
-* JPA inheritance is used to model polymorphic match knowledge cleanly
-* DTOs prevent entity leakage outside the service boundary
-* Global exception handling ensures consistent API error responses
-* Validation rules enforce domain correctness
-* Spring Security is configured using HTTP method + endpoint matching
+**Polymorphic domain modeling using JPA inheritance**
+The archived match knowledge was modeled using JPA inheritance to support multiple knowledge types (reports, quotes, links, collections) under a single abstraction. This allowed common fields like match title and venue to be shared, while keeping type-specific fields isolated and extensible.
+
+**DTO-based API design**
+DTOs were introduced to decouple persistence models from API responses. This prevents entity leakage, allows controlled exposure of fields, and makes future response-level access control easier to implement without changing the domain layer.
+
+**Method-level and endpoint-specific security configuration**
+Spring Security rules were defined using both HTTP methods and endpoint paths instead of generic URL matching. This avoided accidental rule shadowing and ensured clear separation of access:
+
+--Public endpoints remain unauthenticated
+
+--USER role has read-only access
+
+--ADMIN role has write permissions
+
+**Centralized exception handling**
+A global exception handler was implemented to return consistent and meaningful error responses across validation failures, conflicts, and unauthorized access. This improves API usability and client-side error handling.
+
+**In-memory H2 database for fast iteration and testing**
+An embedded H2 database was used to keep the setup lightweight and reproducible. This allows the project to run and be evaluated without any external dependencies.
+
+**Focused and layered testing strategy**
+Service logic is tested in isolation using Mockito, while controller and security behavior are validated using MockMvc. Database-generated behavior such as ID assignment is simulated in unit tests to avoid unnecessary JPA startup.
+
+---
 
 ### Security Insight
 
