@@ -1,135 +1,224 @@
-# Football Archive – Spring Boot REST API
+# ⚽ Football Archive – Spring Boot REST API
 
-## JDK Requirement
+A clean, secure Spring Boot REST API for managing **archived football match knowledge**.
+This project demonstrates real-world backend engineering practices including REST design, security, persistence, validation, logging, and testing.
 
-* Java **21**
+---
 
-## Project Overview
-This project is a Spring Boot REST API that manages archived football match knowledge.
-The system supports different types of match knowledge such as match reports, quotes, reference links, and collections.
-It demonstrates REST API design, Spring Security, JPA inheritance, validation, error handling, logging, and testing.
+## 🧰 Tech Stack
 
-## How to Run the Application
+* **Java:** 21
+* **Framework:** Spring Boot
+* **Security:** Spring Security (HTTP Basic, RBAC)
+* **Persistence:** Spring Data JPA + H2 (in-memory)
+* **Testing:** JUnit 5, Mockito, MockMvc
+* **Build Tool:** Maven
+
+---
+
+## 📌 Project Overview
+
+The application stores and exposes different types of football match knowledge:
+
+* Match Reports
+* Quotes
+* Reference Links
+* Match Collections
+
+Key engineering concepts showcased:
+
+* RESTful API design with proper HTTP semantics
+* Role-based access control (USER / ADMIN)
+* JPA inheritance for polymorphic domain modeling
+* DTO-based API contracts
+* Centralized exception handling
+* Bean Validation
+* File-based logging
+* Unit, integration, and security testing
+
+---
+
+## ▶️ How to Run the Application
 
 1. Clone the repository
 2. Navigate to the project root
-3. Run the application:
+3. Start the application:
+
+```bash
 mvn spring-boot:run
+```
 
-The application will start on:
-http://localhost:8080, we can change it by going to resources/application.properties and changing the port using server.port=8080.
+The application starts at:
 
-## How to Run Tests
-Run all unit and integration tests using:
+```
+http://localhost:8080
+```
+
+To change the port:
+
+```properties
+server.port=8080
+```
+
+---
+
+## 🧪 Running Tests
+
+Run all tests using:
+
+```bash
 mvn test
+```
 
-Tests include:
+Test coverage includes:
+
 * Service layer unit tests
-* Controller integration tests using MockMvc
-* Security tests (401 unauthorized and authenticated access)
+* Controller integration tests (MockMvc)
+* Security tests (401 unauthorized & authenticated access)
 
-## Database (H2)
+---
 
-* The application uses **embedded H2 (in-memory)** database
-* No external database setup is required
-* Data is reset every time the application restarts
+## 🗄️ Database Configuration (H2)
+
+* Embedded **H2 in-memory** database
+* No external setup required
+* Data resets on application restart
 
 ### H2 Console
 
 Available at:
+
+```
 http://localhost:8080/h2-console
+```
 
 Connection details:
 
-* JDBC URL: `jdbc:h2:mem:footballdb`
-* Username: `sa`
-* Password: empty
+| Property | Value                  |
+| -------- | ---------------------- |
+| JDBC URL | jdbc:h2:mem:footballdb |
+| Username | sa                     |
+| Password | (empty)                |
 
 ---
 
-## Loading Initial Sample Data
+## 📥 Loading Sample Data
 
-Initial data can be loaded by calling the POST endpoint after starting the application.
+Initial data can be added via the secured POST endpoint.
 
-Example using curl:
+Example:
+
+```bash
 curl -u admin:admin123 \
   -H "Content-Type: application/json" \
   -X POST \
   -d '{"type":"REPORT","matchTitle":"El Clasico 2024","venue":"Santiago Bernabeu","reportText":"Barcelona defeated Real Madrid in El Clasico 2024 with a strong second-half performance."}' \
   http://localhost:8080/api/knowledge
+```
 
+---
 
-## Sample API Calls
+## 🔌 Sample API Calls
 
-### 1. Public Endpoint (No Authentication)
+### 1️⃣ Public Endpoint (No Authentication)
 
+```bash
 curl http://localhost:8080/api/knowledge/public
+```
 
-### 2. Secured GET Endpoint (User/Admin)
+### 2️⃣ Secured GET Endpoint (USER / ADMIN)
 
+```bash
 curl -u user:user123 http://localhost:8080/api/knowledge
+```
 
-### 3. Secured POST Endpoint (Admin Only)
+### 3️⃣ Secured POST Endpoint (ADMIN only)
+
+```bash
 curl -u admin:admin123 \
   -H "Content-Type: application/json" \
   -X POST \
   -d '{"type":"QUOTE","matchTitle":"UCL Final","venue":"Wembley","quoteText":"Football is life","speaker":"Manager"}' \
   http://localhost:8080/api/knowledge
+```
 
+---
 
-## In-Memory Users
+## 👤 In-Memory Users
 
 | Username | Password | Role  |
 | -------- | -------- | ----- |
 | user     | user123  | USER  |
 | admin    | admin123 | ADMIN |
 
-## Logging
+---
 
-* File logging is enabled
-* Logs are written to:
+## 📝 Logging
+
+* File-based logging enabled
+* Log file location:
 
 ```
 logs/app.log
 ```
 
-Logging is added for:
+Logged events include:
 
-* Public access
+* Public access requests
 * Authenticated access
-* Creation of archived matches
-* Conflict scenarios
+* Archive creation events
+* Conflict and validation failures
 
-## Engineering Notes
+---
 
-* Used JPA inheritance to model different match knowledge types cleanly
-* DTOs are used to avoid exposing entities directly
-* Centralized exception handling ensures consistent error responses
-* Validation is enforced using Bean Validation annotations
-* Security is implemented using HTTP Basic with role-based access (user,admin)
-* During development, I noticed that Spring Security evaluates request matchers in order, and a generic path-based rule was matching first and blocking more specific access rules.
-  -To fix this, I updated the security configuration to define access rules using both HTTP method and endpoint, instead of only matching on URL patterns.
-  -This change ensured clear separation of responsibilities:
-  -Public users can only access the public GET endpoint
-  -USER role has read-only access (GET endpoints only)
-  -ADMIN role has elevated permissions like creating and deleting archive entries
-*
+## 🧠 Engineering Notes
+
+* JPA inheritance is used to model polymorphic match knowledge cleanly
+* DTOs prevent entity leakage outside the service boundary
+* Global exception handling ensures consistent API error responses
+* Validation rules enforce domain correctness
+* Spring Security is configured using HTTP method + endpoint matching
+
+### Security Insight
+
+During development, a generic URL matcher was evaluated before specific rules, unintentionally blocking access.
+This was resolved by defining **method-specific authorization rules**, ensuring:
+
+* Public users → public GET endpoint only
+* USER role → read-only access
+* ADMIN role → create and delete permissions
+
+---
+
+## 🧪 Testing Note (Mocked ID Simulation)
+
+In service unit tests, Hibernate is not active.
+To simulate database-generated IDs, repository responses are mocked:
+
+```java
 MatchReport saved = Mockito.mock(MatchReport.class);
-Mockito.when(saved.getId()).thenReturn(1L);   // ← manual simulation of DB-generated ID
+Mockito.when(saved.getId()).thenReturn(1L);
 Mockito.when(saved.getMatchTitle()).thenReturn("El Clasico 2024");
-In the code snippet above which is part of service unit test, we mock the repository return value to simulate the database assigning an ID, since Hibernate isn’t running.
+```
 
+This mirrors real persistence behavior without starting the JPA layer.
 
-## What I Would Improve with 2 More Hours
-*Add more realistic sample data covering all match types (reports, quotes, reference links, and collections) so the API feels closer to a real archive.
-*Extend the match domain with a few additional fields such as squad list, formations played, and referee details to make archived matches richer and more useful.
-*Improve the security configuration so users can gradually see more detailed match information (for example, basic data for public users and richer data for authenticated users).
-*Add more test cases around validation edge cases, especially for minimum/maximum field lengths and missing mandatory fields.
-*Improve API documentation by adding a Postman collection or clearer examples showing how each endpoint should be called and what responses to expect.
+---
 
-## Status
+## 🚀 What I Would Improve With 2 More Hours
 
-✅ Application runs successfully
-✅ Security works as expected
-✅ Tests cover service, controller, and security behavior
+* Add richer and more realistic sample data for all match types
+* Extend the domain with squad lists, formations, and referee details
+* Introduce response-level access control (basic vs detailed views)
+* Expand validation edge-case test coverage
+* Improve API documentation with Postman collections and response samples
+
+---
+
+## ✅ Current Status
+
+* ✅ Application runs successfully
+* ✅ Security behaves as expected
+* ✅ Tests cover service, controller, and security layers
+
 
