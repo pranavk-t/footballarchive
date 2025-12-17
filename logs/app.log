@@ -249,3 +249,97 @@
 2025-12-17T16:34:11.107+05:30  INFO 29572 --- [footballarchive] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-17T16:34:11.113+05:30  INFO 29572 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-12-17T16:34:11.131+05:30  INFO 29572 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-17T16:35:34.480+05:30  INFO 10848 --- [footballarchive] [main] c.e.f.FootballarchiveApplication         : Starting FootballarchiveApplication using Java 21.0.8 with PID 10848 (E:\workspace\footballarchive\target\classes started by thaku in E:\workspace\footballarchive)
+2025-12-17T16:35:34.485+05:30  INFO 10848 --- [footballarchive] [main] c.e.f.FootballarchiveApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-17T16:35:36.532+05:30  INFO 10848 --- [footballarchive] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-17T16:35:36.636+05:30  INFO 10848 --- [footballarchive] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 1 JPA repository interface.
+2025-12-17T16:35:38.236+05:30  INFO 10848 --- [footballarchive] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-17T16:35:38.279+05:30  INFO 10848 --- [footballarchive] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-17T16:35:38.280+05:30  INFO 10848 --- [footballarchive] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.49]
+2025-12-17T16:35:38.425+05:30  INFO 10848 --- [footballarchive] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-17T16:35:38.426+05:30  INFO 10848 --- [footballarchive] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3843 ms
+2025-12-17T16:35:39.148+05:30  INFO 10848 --- [footballarchive] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-17T16:35:39.242+05:30  INFO 10848 --- [footballarchive] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.36.Final
+2025-12-17T16:35:39.297+05:30  INFO 10848 --- [footballarchive] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-17T16:35:39.863+05:30  INFO 10848 --- [footballarchive] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-17T16:35:39.930+05:30  INFO 10848 --- [footballarchive] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-17T16:35:40.305+05:30  INFO 10848 --- [footballarchive] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:footballdb user=SA
+2025-12-17T16:35:40.310+05:30  INFO 10848 --- [footballarchive] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-17T16:35:40.353+05:30  WARN 10848 --- [footballarchive] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-17T16:35:40.391+05:30  INFO 10848 --- [footballarchive] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-17T16:35:42.221+05:30  INFO 10848 --- [footballarchive] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-17T16:35:42.345+05:30  INFO 10848 --- [footballarchive] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17T16:35:43.025+05:30  INFO 10848 --- [footballarchive] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-17T16:35:44.896+05:30  WARN 10848 --- [footballarchive] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-17T16:35:45.234+05:30  INFO 10848 --- [footballarchive] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-12-17T16:35:46.629+05:30  INFO 10848 --- [footballarchive] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:footballdb'
+2025-12-17T16:35:46.885+05:30  INFO 10848 --- [footballarchive] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-17T16:35:46.903+05:30  INFO 10848 --- [footballarchive] [main] c.e.f.FootballarchiveApplication         : Started FootballarchiveApplication in 13.23 seconds (process running for 13.81)
+2025-12-17T16:35:54.109+05:30  INFO 10848 --- [footballarchive] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-17T16:35:54.110+05:30  INFO 10848 --- [footballarchive] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-17T16:35:54.111+05:30  INFO 10848 --- [footballarchive] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-17T16:40:25.401+05:30  INFO 10848 --- [footballarchive] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-17T16:40:25.421+05:30  INFO 10848 --- [footballarchive] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-17T16:40:25.430+05:30  INFO 10848 --- [footballarchive] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17T16:40:25.437+05:30  INFO 10848 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-17T16:40:25.451+05:30  INFO 10848 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-17T16:40:36.174+05:30  INFO 34836 --- [footballarchive] [main] c.e.f.FootballarchiveApplication         : Starting FootballarchiveApplication using Java 21.0.8 with PID 34836 (E:\workspace\footballarchive\target\classes started by thaku in E:\workspace\footballarchive)
+2025-12-17T16:40:36.178+05:30  INFO 34836 --- [footballarchive] [main] c.e.f.FootballarchiveApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-17T16:40:37.744+05:30  INFO 34836 --- [footballarchive] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-17T16:40:37.831+05:30  INFO 34836 --- [footballarchive] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
+2025-12-17T16:40:39.309+05:30  INFO 34836 --- [footballarchive] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-17T16:40:39.346+05:30  INFO 34836 --- [footballarchive] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-17T16:40:39.346+05:30  INFO 34836 --- [footballarchive] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.49]
+2025-12-17T16:40:39.455+05:30  INFO 34836 --- [footballarchive] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-17T16:40:39.458+05:30  INFO 34836 --- [footballarchive] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3215 ms
+2025-12-17T16:40:39.910+05:30  INFO 34836 --- [footballarchive] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-17T16:40:39.978+05:30  INFO 34836 --- [footballarchive] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.36.Final
+2025-12-17T16:40:40.046+05:30  INFO 34836 --- [footballarchive] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-17T16:40:40.559+05:30  INFO 34836 --- [footballarchive] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-17T16:40:40.597+05:30  INFO 34836 --- [footballarchive] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-17T16:40:40.899+05:30  INFO 34836 --- [footballarchive] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:footballdb user=SA
+2025-12-17T16:40:40.903+05:30  INFO 34836 --- [footballarchive] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-17T16:40:40.936+05:30  WARN 34836 --- [footballarchive] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-17T16:40:40.969+05:30  INFO 34836 --- [footballarchive] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-17T16:40:42.250+05:30  INFO 34836 --- [footballarchive] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-17T16:40:42.340+05:30  INFO 34836 --- [footballarchive] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17T16:40:43.003+05:30  INFO 34836 --- [footballarchive] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-17T16:40:44.159+05:30  WARN 34836 --- [footballarchive] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-17T16:40:44.345+05:30  INFO 34836 --- [footballarchive] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-12-17T16:40:45.096+05:30  INFO 34836 --- [footballarchive] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:footballdb'
+2025-12-17T16:40:45.307+05:30  INFO 34836 --- [footballarchive] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-17T16:40:45.322+05:30  INFO 34836 --- [footballarchive] [main] c.e.f.FootballarchiveApplication         : Started FootballarchiveApplication in 9.936 seconds (process running for 10.491)
+2025-12-17T16:40:54.376+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-17T16:40:54.376+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-17T16:40:54.378+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-17T16:42:16.635+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-5] c.e.f.logging.ArchiveAuditLogger         : Public access: listing archived matches
+2025-12-17T16:42:31.748+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-7] c.e.f.logging.ArchiveAuditLogger         : Authenticated access: listing archived matches
+2025-12-17T16:43:35.143+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-4] c.e.f.logging.ArchiveAuditLogger         : Public access: listing archived matches
+2025-12-17T16:45:51.745+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-7] c.e.f.logging.ArchiveAuditLogger         : Authenticated access: listing archived matches
+2025-12-17T16:56:48.676+05:30  WARN 34836 --- [footballarchive] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m37s585ms48µs700ns).
+2025-12-17T16:56:49.016+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-3] c.e.f.logging.ArchiveAuditLogger         : Public access: listing archived matches
+2025-12-17T16:56:56.032+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-4] c.e.f.logging.ArchiveAuditLogger         : Authenticated access: listing archived matches
+2025-12-17T16:57:14.663+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-5] c.e.f.logging.ArchiveAuditLogger         : Authenticated access: listing archived matches
+2025-12-17T16:57:22.981+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-9] c.e.f.logging.ArchiveAuditLogger         : Public access: listing archived matches
+2025-12-17T16:58:32.647+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-2] c.e.f.logging.ArchiveAuditLogger         : Authenticated access: listing archived matches
+2025-12-17T17:02:47.181+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-7] c.e.f.logging.ArchiveAuditLogger         : Admin created archived match with title='Champions League Final 2023'
+2025-12-17T17:02:56.039+05:30  INFO 34836 --- [footballarchive] [http-nio-8080-exec-2] c.e.f.logging.ArchiveAuditLogger         : Authenticated access: listing archived matches
+2025-12-17T17:09:17.958+05:30  INFO 34836 --- [footballarchive] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-17T17:09:17.971+05:30  INFO 34836 --- [footballarchive] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-17T17:09:17.977+05:30  INFO 34836 --- [footballarchive] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17T17:09:17.983+05:30  INFO 34836 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-17T17:09:17.988+05:30  INFO 34836 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

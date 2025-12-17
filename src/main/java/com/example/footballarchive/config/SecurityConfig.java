@@ -14,12 +14,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/knowledge/public").permitAll()
-                        .requestMatchers("/api/knowledge").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/api/knowledge/**").hasRole("ADMIN")
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/knowledge/public").permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/knowledge")
+                        .hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/knowledge")
+                        .hasRole("ADMIN")
+                        .requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/knowledge/**")
+                        .hasRole("ADMIN")
+
                         .anyRequest().authenticated()
-                ).httpBasic(Customizer.withDefaults());
+                )
+                .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
