@@ -26,16 +26,14 @@ public class MatchArchiveController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserArchivedMatchDto>> getUserMatches(
-            @RequestParam(required = false) String keyword) {
+    public ResponseEntity<List<UserArchivedMatchDto>> getUserMatches(@RequestParam(required = false) String keyword) {
 
         return ResponseEntity.ok(service.getUserMatches(keyword));
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Long> createArchivedMatch(
-            @Valid @RequestBody CreatedArchivedMatchRequest request) {
+    public ResponseEntity<Long> createArchivedMatch(@Valid @RequestBody CreatedArchivedMatchRequest request) {
 
         Long id = service.createArchivedMatch(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(id);
