@@ -24,23 +24,27 @@ public class MatchArchiveServiceTest {
 
     @Test
     void createArchivedMatch_success() {
-
         CreatedArchivedMatchRequest request = new CreatedArchivedMatchRequest();
         request.setType(MatchType.REPORT);
-        request.setMatchTitle("WC Final 2018");
-        request.setVenue("Luzhniki Stadium");
-        request.setReportText("France defeated Croatia 4-2");
+        request.setMatchTitle("El Clasico 2024");
+        request.setVenue("Santiago Bernabeu");
+        request.setReportText(
+                "Barcelona defeated real madrid in El Clasico 2024 with a strong second-half performance."
+        );
+
+        MatchReport saved = Mockito.mock(MatchReport.class);
+        Mockito.when(saved.getId()).thenReturn(1L);
+        Mockito.when(saved.getMatchTitle()).thenReturn("El Clasico 2024");
 
         Mockito.when(repository.save(any()))
-                .thenReturn(new MatchReport(
-                        "WC Final 2018",
-                        "Luzhniki Stadium",
-                        "France defeated Croatia 4-2"
-                ));
-
+                .thenReturn(saved);
         Long id = service.createArchivedMatch(request);
 
         assertNotNull(id);
+        assertEquals(1L, id);
+
+
+
     }
 
     @Test
@@ -50,7 +54,7 @@ public class MatchArchiveServiceTest {
         request.setType(MatchType.REPORT);
         request.setMatchTitle("Duplicate Match");
         request.setVenue("Some Venue");
-        request.setReportText("Some report");
+        request.setReportText("This is a valid report text with more than twenty characters.");
 
         Mockito.when(repository.save(any()))
                 .thenThrow(DataIntegrityViolationException.class);

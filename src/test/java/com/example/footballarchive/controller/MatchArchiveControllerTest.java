@@ -45,7 +45,7 @@ public class MatchArchiveControllerTest {
         request.setType(MatchType.REPORT);
         request.setMatchTitle("Test Match");
         request.setVenue("Test Venue");
-        request.setReportText("Test report");
+        request.setReportText("This is a valid report text with more than twenty characters.");
 
         mockMvc.perform(post("/api/knowledge")
                         .contentType(MediaType.APPLICATION_JSON)
