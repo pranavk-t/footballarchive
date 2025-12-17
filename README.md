@@ -113,7 +113,13 @@ Logging is added for:
   -Public users can only access the public GET endpoint
   -USER role has read-only access (GET endpoints only)
   -ADMIN role has elevated permissions like creating and deleting archive entries
-  
+*
+MatchReport saved = Mockito.mock(MatchReport.class);
+Mockito.when(saved.getId()).thenReturn(1L);   // ← manual simulation of DB-generated ID
+Mockito.when(saved.getMatchTitle()).thenReturn("El Clasico 2024");
+In the code snippet above which is part of service unit test, we mock the repository return value to simulate the database assigning an ID, since Hibernate isn’t running.
+
+
 ## What I Would Improve with 2 More Hours
 *Add more realistic sample data covering all match types (reports, quotes, reference links, and collections) so the API feels closer to a real archive.
 *Extend the match domain with a few additional fields such as squad list, formations played, and referee details to make archived matches richer and more useful.
