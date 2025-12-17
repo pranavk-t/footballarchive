@@ -862,3 +862,4 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-12-17T17:45:31.757+05:30  INFO 19672 --- [footballarchive] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-17T17:45:31.759+05:30  INFO 19672 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2025-12-17T17:45:31.767+05:30  INFO 19672 --- [footballarchive] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-12-17T17:51:49.619+05:30  WARN 4284 --- [footballarchive] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m27s924ms649µs900ns).

@@ -89,7 +89,7 @@ public class MatchArchiveService {
     private UserArchivedMatchDto mapToUserDto(ArchivedMatch match) {
 
         if (match instanceof MatchReport) {
-            MatchReport report = (MatchReport) match;      /* shows error report not found*/
+            MatchReport report = (MatchReport) match;
 
             return new UserArchivedMatchDto(
                     report.getId(),
