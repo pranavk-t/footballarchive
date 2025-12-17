@@ -207,11 +207,17 @@ This mirrors real persistence behavior without starting the JPA layer.
 
 ## 🚀 What I Would Improve With 2 More Hours
 
-* Add richer and more realistic sample data for all match types
-* Extend the domain with squad lists, formations, and referee details
-* Introduce response-level access control (basic vs detailed views)
-* Expand validation edge-case test coverage
-* Improve API documentation with Postman collections and response samples
+**Richer and more realistic sample data**
+I would expand the dataset to reflect real football history rather than demo-style entries. That means adding matches from different competitions and seasons, varied venues, and different outcomes. Each knowledge type would be properly represented — detailed match reports, authentic quotes, external reference links, and curated collections.
+
+**Extended match domain**
+Separately from data volume, I would deepen the domain model itself. I’d introduce structured football concepts such as playing XIs and substitute squads, formations used by each team, and referee or officiating crew details.
+
+**Response-level access control**
+Beyond endpoint security, I’d control what data is returned based on the user role. Public users would see only basic match metadata, authenticated users would receive richer match details, and admins would have access to full internal information.
+
+**Improved API documentation**
+I’d provide a Postman collection with ready-to-run requests, example payloads, and saved environments.
 
 ---
 
